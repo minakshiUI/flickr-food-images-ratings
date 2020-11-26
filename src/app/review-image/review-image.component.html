@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-sm-offset-1 col-md-offset-2">
+        <div *ngIf="imageDetail" class="px-5">
+          <br>
+          <h1 style="font-size:250%; color: #656ebd;">Check Image Details</h1><hr>
+          <br>
+          <br>
+          <div>
+            <img src="{{imageDetail.url}}" alt="" class="image-responsive smaller">
+          </div>  
+          <div><br>
+            <h3 style="color:#656ebd; font-size: 18px;">Image Title</h3>
+            <p style="font-size: medium;">{{imageDetail.title}}</p>
+          </div>      
+          <div>
+            <h3 style="color:#656ebd;font-size: 18px;">Image Description</h3>
+            <p style="font-size: medium;">{{imageDetail.secret}}</p>
+          </div>
+      </div>
+      <br>
+      <div class="px-5">
+      <h2 style="color:#656ebd ;">Post Image Ratings!</h2>
+      <form (ngSubmit)="onSubmit()" #f="ngForm">
+        <div class="form-check form-check-inline rating" *ngFor="let star of stars">
+          <input type="radio" id="star{{star}}" name="star" [value]="star" [(ngModel)]="rating"  required>
+          <label for="star{{star}}"></label>
+        </div> <br><br><br>
+        <!-- <p>Image rating :{{rating}}</p> -->
+        <div class="form-group">
+          <!-- <h4 for="secret">Your Name</h4> -->
+          <input type="text" id="urName" class="form-control" ngModel name="urName" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+          <!-- <strong for="secret">Reason of Rating</strong> -->
+          <input type="text" id="rateReason" class="form-control" ngModel name="rateReason" placeholder="Reason Of Ratings" required>
+        </div>
+        <button type="submit" class="btn btn-primary .btn-lg" [disabled]="!f.valid">Submit Feedback</button>
+      </form>
+      </div>
+    </div>
+  </div>
+
+ 
+  
