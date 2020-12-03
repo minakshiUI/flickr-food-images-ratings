@@ -20,23 +20,20 @@
       </div>
       <br>
       <div class="px-5">
-      <h2 style="color:#656ebd ;">Post Image Ratings!</h2>
-      <form (ngSubmit)="onSubmit()" #f="ngForm">
-        <div class="form-check form-check-inline rating" *ngFor="let star of stars">
-          <input type="radio" id="star{{star}}" name="star" [value]="star" [(ngModel)]="rating"  required>
-          <label for="star{{star}}"></label>
-        </div> <br><br><br>
-        <!-- <p>Image rating :{{rating}}</p> -->
-        <div class="form-group">
-          <!-- <h4 for="secret">Your Name</h4> -->
-          <input type="text" id="urName" class="form-control" ngModel name="urName" placeholder="Your Name" required>
-        </div>
-        <div class="form-group">
-          <!-- <strong for="secret">Reason of Rating</strong> -->
-          <input type="text" id="rateReason" class="form-control" ngModel name="rateReason" placeholder="Reason Of Ratings" required>
-        </div>
-        <button type="submit" class="btn btn-primary .btn-lg" [disabled]="!f.valid">Submit Feedback</button>
-      </form>
+        <h2 style="color:#656ebd ;">Post Image Ratings!</h2>
+        <form [formGroup]="ratingForm" (ngSubmit)="onSubmit()" >
+          <div class="form-group" style="padding-right:50px;">
+            <ngx-star-rating formControlName="rating" [id]="'rating'"></ngx-star-rating>
+          </div>
+          <br><br><br>
+          <div class="form-group">
+            <input type="text" formControlName="name"  placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <input type="text" formControlName="reason" placeholder="Reason Of Ratings" required>
+          </div>
+          <button type="submit" class="btn btn-primary .btn-lg" [disabled]="!ratingForm.valid">Submit Feedback</button>
+        </form>
       </div>
     </div>
   </div>
