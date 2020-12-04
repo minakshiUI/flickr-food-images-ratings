@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="width: 1000px;">
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-6 col-sm-offset-1 col-md-offset-2">
         <div *ngIf="imageDetail" class="px-5">
@@ -22,7 +22,7 @@
       <div class="px-5">
         <h2 style="color:#656ebd ;">Post Image Ratings!</h2>
         <form [formGroup]="ratingForm" (ngSubmit)="onSubmit()" >
-          <div class="form-group" style="padding-right:50px;">
+          <div class="form-group" style="padding-right:105px;">
             <ngx-star-rating formControlName="rating" [id]="'rating'"></ngx-star-rating>
           </div>
           <br><br><br>

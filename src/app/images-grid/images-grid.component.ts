@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter, Input, ViewChild } from '@angu
 import { FlickrAPIService } from '../services/flickr-api.service';
 import { ActivatedRoute } from '@angular/router';
 import { from } from 'rxjs';
-
+import { NgxPaginationModule } from 'ngx-pagination';
  
 @Component({
   selector: 'app-images-grid',
@@ -10,7 +10,7 @@ import { from } from 'rxjs';
   styleUrls: ['./images-grid.component.css']
 })
 export class ImagesGridComponent implements OnInit {
-
+  page:number=1;
   images=[];
   stars=[1,2,3,4,5,6,7,8,9,10];
 

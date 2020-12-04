@@ -2,7 +2,7 @@
 <div class="container h-100 text-center">
   <br>
   <div class="row text-center">
-    <div class="col-sm-12 col-md-6 col-lg-4 p-3 " *ngFor="let image of images" >
+    <div class="col-sm-12 col-md-6 col-lg-4 p-3 " *ngFor="let image of images | paginate:{id:'ImgPage',currentPage:page,itemsPerPage:30}" >
       <div class="card">
         <a routerLink="review" (click)="sendImageDetail(image.id)">
           <img src="{{image.url}}" title="{{image.title}}">
@@ -12,5 +12,11 @@
         </a>
       </div>
     </div>
+      
+    <pagination-controls id="ImgPage" 
+    directionLinks="true"
+    autoHide="true"
+    responsive="true"
+    (pageChange)="page=$event"></pagination-controls>
   </div>
 </div>

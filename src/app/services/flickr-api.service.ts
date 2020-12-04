@@ -14,7 +14,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class FlickrAPIService implements OnInit{
     private url='https://www.flickr.com/services/rest/?method=flickr.photos.search&';
-    private params=`api_key=${environment.flickr.key}&text=food&format=json&nojsoncallback=1&per_page=30`;
+    private params=`api_key=${environment.flickr.key}&text=food&format=json&nojsoncallback=1&per_page=300`;
     public urlArr=[];
     public imageArr=[];
     imageRating:any;
